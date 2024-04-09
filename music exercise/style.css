@@ -1,0 +1,60 @@
+
+button {
+	height: 40px;
+	aspect-ratio: 1;
+}
+
+#like:focus {
+	color: red;
+}
+
+#pause{
+	display: none;
+}
+.card {
+    box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
+    }
+
+
+body {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+body:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+  background: linear-gradient(to bottom,#c2d65c,#e09c6c,#e87da1,#bf8fef,#7dbbe8,#6ce0b9,#66d65c);
+  background-size: 100% 100%;
+  animation: gradient-rotate 45s ease-in-out infinite;
+  z-index: -1;
+}
+@keyframes gradient-rotate {
+  0% {
+    transform: scale(5) rotate(0deg);
+    background-position: 0 0;
+  }
+  25% {
+    transform: scale(10) rotate(90deg);
+  }
+  50% {
+    transform: scale(5) rotate(180deg);
+    background-position: 100% 100%;
+  }
+  75% {
+    transform: scale(10) rotate(270deg);
+  }
+  100% {
+    transform: scale(5) rotate(360deg);
+    background-position: 0 0;
+  }
+}

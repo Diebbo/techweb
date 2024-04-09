@@ -1,0 +1,3 @@
+start sitexxxxxx node-20 index.js 
+start mongo sitexxxxxx
+//save password

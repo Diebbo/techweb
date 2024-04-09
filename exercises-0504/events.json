@@ -1,0 +1,21 @@
+[
+    {
+      "date": "2024-03-05",
+      "description": "Team Meeting",
+      "location": "Aula II",
+      "participants": ["Wang", "Mohammed", "Lucia", "Marco"]
+    },
+    {
+      "date": "2024-03-15",
+      "description": "Web Development Workshop",
+      "location": "Lab 3",
+      "participants": ["Sara", "Elena", "Ali", "Hua"]
+    },
+    {
+      "date": "2024-03-22",
+      "description": "Project Presentation",
+      "location": "Aula Magna",
+      "participants": ["Giulia", "Riccardo", "Simone", "Alessia"]
+    }
+  ]
+  
