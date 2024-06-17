@@ -1,0 +1,62 @@
+---
+swagger: "2.0"
+info:
+  description: "Descrizione estesa"
+  version: "1.0"
+  title: "Ristorante"
+paths:
+  /menus/all:
+    get:
+      summary: "Miao"
+      operationId: "getMenus"
+      parameters:
+      - name: "tipo"
+        in: "query"
+        required: false
+        type: "string"
+        enum:
+        - "carne"
+        - "pesce"
+      responses:
+        "200":
+          description: "Successo"
+          schema:
+            type: "string"
+        "400":
+          description: "Successo"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Menu"
+      x-swagger-router-controller: "Default"
+  /menus/{menuId}:
+    get:
+      summary: "get menu by id"
+      operationId: "getMenusById"
+      parameters:
+      - name: "menuId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Successo"
+          schema:
+            $ref: "#/definitions/Menu"
+        "400":
+          description: "Insuccesso"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+definitions:
+  Menu:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      description:
+        type: "string"
+        example: "ottimo menu"
+    example:
+      description: "ottimo menu"
+      id: "id"

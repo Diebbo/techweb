@@ -1,0 +1,106 @@
+swagger: "2.0"
+info:
+  version: "1.1"
+  title: "Ristorante"
+  description: "Ristorante a lezione"
+
+paths: 
+  /menus/: # /menus/?tipo=carne&prezzoMinimo=100
+    get:
+      operationId: getMenus
+      parameters:
+        - name: tipo
+          in: query
+          required: false
+          type: string
+          enum: 
+            - carne
+            - pesce
+        - name: prezzoMinimo
+          in: query
+          required: false
+          type: integer
+      responses:
+        "200":
+          description: "Successo"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Menu"
+
+  /menus/{menuID} :
+    get:
+      operationId: getUnMenu
+      parameters:
+        - name: menuID
+          in: path
+          required: true
+          type: string    
+            
+      responses:
+        "200":
+          description: "Successo"
+          schema:
+            $ref: "#/definitions/Menu"
+        "400":
+          description: "Error"
+ 
+ 
+  /menus/{menuID}/piatti/:
+    post:
+      operationId: aggiungiPiatto
+      parameters:
+        - name: menuID
+          in: path
+          required: true
+          type: string  
+        - name: nuovoPiatto
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Piatto"      
+      responses:
+        "200":
+          description: "Successo"
+          schema:
+            $ref: "#/definitions/Menu"
+        "400":
+          description: "Error"    
+definitions:
+  Menu:
+    type: object
+    required:
+      - id
+      - prezzo
+      - description
+      - type
+    properties:
+      id:
+        type: string
+      prezzo:
+        type: integer
+      description:
+        type: string
+        example: "Un ottimo menù di carne o pesce"
+      type:
+        type: string
+        enum: 
+          - carne
+          - pesce
+      piatti:
+        type: array
+        items:
+          $ref : "#/definitions/Piatto"
+        
+  Piatto:
+    type: object
+    required:
+      - id
+      - prezzo
+    properties:
+      id:
+        type: string
+      prezzo:
+        type: integer
+
+  
